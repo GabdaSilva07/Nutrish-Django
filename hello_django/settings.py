@@ -28,6 +28,8 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 # Application definition
 
 INSTALLED_APPS = [
+    'UserAPI',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -35,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+
+    'rest_framework',
+    'multiselectfield',
 ]
 
 MIDDLEWARE = [
