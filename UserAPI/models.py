@@ -13,8 +13,8 @@ class UserInfo (models.Model):
     password = models.CharField(max_length=100)
     diet = models.TextField(blank=True)
     intolerance = models.TextField(blank=True)
-    owner = models.ForeignKey(
-        User, related_name="userInfo", on_delete=models.CASCADE, null=True)
+    # owner = models.ForeignKey(
+    #     User, related_name="userInfo", on_delete=models.CASCADE, null=True)
     favourite1 = models.CharField(max_length=100)
     favourite2 = models.CharField(max_length=100)
     favourite3 = models.CharField(max_length=100)
