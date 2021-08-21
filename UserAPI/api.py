@@ -1,20 +1,19 @@
-from .models import User
 from rest_framework import viewsets, permissions
-from .serializer import UserSerializer
+from .serializer import UserInfoSerializer
+from .models import UserInfo
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    permissions = [
+# Lead Viewset
+
+
+class UserInfoViewSet(viewsets.ModelViewSet):
+    queryset = UserInfo.objects.all()
+    permission_classes = [
         permissions.IsAuthenticated
     ]
-    serializer_class = UserSerializer
+    serializer_class = UserInfoSerializer
 
+    # def get_queryset(self):
+    #     return self.request.user.UserInfo.all()
 
-    def get_queryset(self):
-        return self.request.user.users.all()
-
-
-    def get_permissions(self):
-        if self.request.method == 'POST':
-            return []
-        return super().get_permissions()
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
