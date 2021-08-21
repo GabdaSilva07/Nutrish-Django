@@ -8,11 +8,11 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 
 router = routers.DefaultRouter()
-<<<<<<< HEAD
+
 router.register('users', UserInfoViewSet)
-=======
+
 router.register('users', UserViewSet)
->>>>>>> master
+
 
 urlpatterns = [
     path("home/", mainPage),

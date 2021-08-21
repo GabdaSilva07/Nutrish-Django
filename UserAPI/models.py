@@ -1,15 +1,11 @@
 from django.db import models
-<<<<<<< HEAD
 from django.contrib.auth.models import User
-=======
->>>>>>> master
-
 
 # Create your models here.
 
 
 
-<<<<<<< HEAD
+
 class UserInfo (models.Model):
     name = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
@@ -23,5 +19,4 @@ class UserInfo (models.Model):
     favourite2 = models.CharField(max_length=100)
     favourite3 = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
-=======
->>>>>>> master
+
