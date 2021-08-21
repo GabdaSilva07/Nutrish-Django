@@ -5,3 +5,4 @@ whitenoise==5.2.0
 djangorestframework==3.12.4
 django-multiselectfield==0.1.12
 django-cors-headers==3.8.0
+django-rest-knox==4.0.1
