@@ -159,8 +159,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 CORS_ALLOWED_ORIGINS = [
-    'https://nutrish.live/',
-    'http://127.0.0.1:8000/',
-    'https://nutritish.me/',
-    'nutritish.me'
+    'https://nutrish.live',
+    'http://localhost:8000',
+    'https://nutritish.me',
 ]
