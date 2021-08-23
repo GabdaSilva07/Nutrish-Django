@@ -157,6 +157,11 @@ STATIC_ROOT = Path(BASE_DIR).joinpath('staticfiles')
 STATICFILES_DIRS = (Path(BASE_DIR).joinpath('static'),)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ]
+}
 
 CORS_ALLOWED_ORIGINS = [
     'https://nutrish.live',
