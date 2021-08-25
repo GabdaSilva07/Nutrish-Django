@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 
 
 class Info(models.Model):
@@ -7,7 +7,7 @@ class Info(models.Model):
 
 
 
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_info")
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user_info")
     diet = models.TextField(blank=True)
     intolerance = models.TextField(blank=True)
     favourite1 = models.CharField(max_length=100)
