@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # 'rest_framework.authtoken',
     'multiselectfield',
     "corsheaders",
+    'rest_framework_simplejwt',
 
 ]
 
