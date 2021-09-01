@@ -21,3 +21,8 @@ class CustomUserSerializer(serializers.ModelSerializer):
         return instance
 
 
+class UserInfoSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = NewUser
+        fields = ('email', 'user_name', 'diet', 'intolerance', 'favourite1', 'favourite2', 'favourite3')

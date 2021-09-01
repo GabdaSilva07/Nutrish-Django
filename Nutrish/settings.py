@@ -165,7 +165,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 REST_FRAMEWORK = {
 
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
     ],
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -181,13 +181,14 @@ CORS_ALLOWED_ORIGINS = [
     'https://nutrish.live',
     'http://localhost:8000',
     'https://nutritish.me',
+    'http://localhost:3000',
 ]
 
 
 AUTH_USER_MODEL = "users.NewUser"
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': True,

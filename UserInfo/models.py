@@ -7,7 +7,7 @@ class Info(models.Model):
 
 
 
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user_info")
+    author = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user_info")
     diet = models.TextField(blank=True)
     intolerance = models.TextField(blank=True)
     favourite1 = models.CharField(max_length=100)

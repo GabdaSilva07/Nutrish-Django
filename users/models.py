@@ -40,6 +40,11 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), unique=True)
     user_name = models.CharField(max_length=150, unique=True)
     first_name = models.CharField(max_length=150, blank=True)
+    diet = models.TextField(blank=True)
+    intolerance = models.TextField(blank=True)
+    favourite1 = models.CharField(max_length=100)
+    favourite2 = models.CharField(max_length=100)
+    favourite3 = models.CharField(max_length=100)
     start_date = models.DateTimeField(default=timezone.now)
     about = models.TextField(_(
         'about'), max_length=500, blank=True)
