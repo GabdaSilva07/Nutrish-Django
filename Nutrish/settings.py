@@ -184,7 +184,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
-AUTH_USER_MODEL = "users.newuser"
+AUTH_USER_MODEL = "users.NewUser"
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
