@@ -45,6 +45,8 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
     favourite1 = models.CharField(max_length=100)
     favourite2 = models.CharField(max_length=100)
     favourite3 = models.CharField(max_length=100)
+    favourite4 = models.CharField(max_length=100)
+    favourite5 = models.CharField(max_length=100)
     start_date = models.DateTimeField(default=timezone.now)
     about = models.TextField(_(
         'about'), max_length=500, blank=True)
