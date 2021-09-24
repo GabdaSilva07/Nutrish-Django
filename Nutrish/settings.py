@@ -94,6 +94,7 @@ WSGI_APPLICATION = 'Nutrish.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+AUTH_USER_MODEL = "users.NewUser"
 
 DATABASE_URL = os.getenv('DATABASE_URL', None)
 
@@ -110,7 +111,7 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'db',
-            'USER': db_info.username,
+            'USER': db_info.email,
             'PASSWORD': db_info.password,
             'HOST': db_info.hostname,
             'PORT': db_info.port,
@@ -184,7 +185,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
-AUTH_USER_MODEL = "users.NewUser"
+
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
