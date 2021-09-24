@@ -8,7 +8,7 @@ from .serializers import CustomUserSerializer, UserInfoSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework import generics
-from .models import newuser
+from .models import NewUser
 
 
 class CustomUserCreate(APIView):

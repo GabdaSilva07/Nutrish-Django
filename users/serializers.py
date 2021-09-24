@@ -1,13 +1,13 @@
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken, TokenError
-from users.models import newuser
+from users.models import NewUser
 
 
 class CustomUserSerializer(serializers.ModelSerializer):
 
 
     class Meta:
-        model = newuser
+        model = NewUser
         fields = ('email', 'user_name', 'password', 'diet', 'intolerance', 'favourite1', 'favourite2', 'favourite3', 'favourite4', 'favourite5')
         extra_kwargs = {'password': {'write_only': True}}
 
@@ -24,5 +24,5 @@ class CustomUserSerializer(serializers.ModelSerializer):
 class UserInfoSerializer(serializers.ModelSerializer):
     
     class Meta:
-        model = newuser
+        model = NewUser
         fields = ('email', 'user_name', 'diet', 'intolerance', 'favourite1', 'favourite2', 'favourite3', 'favourite4', 'favourite5')
