@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 from datetime import timedelta
 from urllib.parse import urlparse
+import sys
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -96,27 +98,22 @@ WSGI_APPLICATION = 'Nutrish.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 AUTH_USER_MODEL = "users.NewUser"
 
+DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
+
 DATABASE_URL = os.getenv('DATABASE_URL', None)
 
-if not DATABASE_URL:
+if DEVELOPMENT_MODE is True:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
         }
     }
-else:
-    db_info = urlparse(DATABASE_URL)
+elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
+    if os.getenv("DATABASE_URL", None) is None:
+        raise Exception("DATABASE_URL environment variable not defined")
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'db',
-            'USER': db_info.username,
-            'PASSWORD': db_info.password,
-            'HOST': db_info.hostname,
-            'PORT': db_info.port,
-            'OPTIONS': {'sslmode': 'require'},
-        }
+        "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
     }
 
 # Password validation
