@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY', 'please-change-me')
+SECRET_KEY = os.getenv('SECRET_KEY', '^x9bd2u_uc-0vh1lty(+psfn^9a)=f!vlf6s5-2)nooi@tvooq')
 DEBUG = True
 # os.getenv('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
@@ -154,8 +154,8 @@ CORS_ALLOW_ALL_ORIGINS=True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = Path(BASE_DIR).joinpath('staticfiles')
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = (Path(BASE_DIR).joinpath('static'),)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
